@@ -16,4 +16,8 @@ const getApi = async () => {
 };
 getApi();
 
+setInterval(getApi, 10000);
+
+
+
 export default getApi;
