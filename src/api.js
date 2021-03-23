@@ -12,11 +12,11 @@ const getApi = async () => {
         Authorization: `Bearer ${getToken.data.access_token}`,
       },
     })
-    .then((res) => console.log(res));
+    .then((res) => console.log(res.data.data[0]));
 };
 getApi();
 
-setInterval(getApi, 10000);
+// setInterval(getApi, 10000);
 
 
 
