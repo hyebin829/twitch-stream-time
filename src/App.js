@@ -1,12 +1,14 @@
 import React from "react";
-import Streamtime from "./components/streamtime.js";
+import Streamtimeline from "./components/streamtimeline.js";
 import Main from "./components/main.js";
+import Streaminfo from "./streaminfo";
 
 function App() {
   return (
     <div>
       <Main />
-      <Streamtime />
+      <Streamtimeline />
+      <Streaminfo />
     </div>
   );
 }
