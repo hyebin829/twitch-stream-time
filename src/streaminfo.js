@@ -10,7 +10,7 @@ function Streaminfo() {
     );
     // console.log(getToken.data.access_token);
     const api = axios
-      .get("https://api.twitch.tv/helix/streams?user_login=yapyap30", {
+      .get("https://api.twitch.tv/helix/streams?user_login=hanryang1125", {
         headers: {
           "Client-ID": "9q6oisptyvvdncbo559zgs7x2n1w2a",
           Authorization: `Bearer ${getToken.data.access_token}`,
@@ -19,8 +19,13 @@ function Streaminfo() {
       .then((res) => {
         setStreaminfo([res.data.data[0]]);
         console.log(res.data.data[0]);
+        console.log(res.data);
+        console.log(res);
       });
   };
+
+  var streamdata = streaminfo.map((data) => data);
+  // console.log(streamdata);
 
   useEffect(() => {
     getApi();
@@ -30,9 +35,11 @@ function Streaminfo() {
       {streaminfo.map((data) => (
         <>
           {" "}
-          <div>{data.title}</div>
-          <div>{data.game_name}</div>
-          <div>{data.viewer_count}</div>
+          <div>
+            {streamdata[0] === undefined ? "방송중이 아닙니다." : data.title}
+          </div>
+          <div>{streamdata[0] === undefined ? "" : data.game_name}</div>
+          <div>{streamdata[0] === undefined ? "" : data.viewer_count}</div>
         </>
       ))}
     </>
