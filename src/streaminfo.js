@@ -10,7 +10,7 @@ function Streaminfo() {
     );
     // console.log(getToken.data.access_token);
     const api = axios
-      .get("https://api.twitch.tv/helix/streams?user_login=zilioner", {
+      .get("https://api.twitch.tv/helix/streams?user_login=hanryang1125", {
         headers: {
           "Client-ID": "9q6oisptyvvdncbo559zgs7x2n1w2a",
           Authorization: `Bearer ${getToken.data.access_token}`,
@@ -31,7 +31,12 @@ function Streaminfo() {
   // console.log(streamdata);
 
   useEffect(() => {
-    getApi();
+    const interval = setInterval(() => {
+      getApi();
+    }, 10000);
+    return () => clearInterval(interval);
+
+    // getApi();
   }, [setStreaminfo]);
   return (
     <>
