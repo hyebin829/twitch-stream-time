@@ -31,9 +31,10 @@ function Streaminfo() {
   // console.log(streamdata);
 
   useEffect(() => {
+    getApi();
     const interval = setInterval(() => {
       getApi();
-    }, 10000);
+    }, 5000);
     return () => clearInterval(interval);
 
     // getApi();
@@ -62,6 +63,11 @@ function Streaminfo() {
           </div>
           <div>{streamdata[0] === undefined ? "" : data.game_name}</div>
           <div>{streamdata[0] === undefined ? "" : data.viewer_count}</div>
+          <div>
+            {streamdata[0] === undefined
+              ? ""
+              : new Date(data.started_at).toString()}
+          </div>
         </>
       ))}
     </>
